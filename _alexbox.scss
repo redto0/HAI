@@ -1,0 +1,49 @@
+
+:root{ --bgcolor:red; }
+
+.box {
+    border: 2px solid #000;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--bgcolor, ); /* Use the CSS variable for background color */
+
+    border-radius: 25px;
+}
+.box-img {
+    max-width: 30%;
+    height: 100px;
+    width: 100px;
+    align-items: right;
+    font: #004242;
+}
+.box-content-with-image {
+    max-width: 65%;
+    height: auto;
+    width: auto;
+    display: grid;
+    align-items: center;
+
+}
+.box-content{
+    align-items: center;
+}
+.box-content-super{
+    margin: 5%;
+    width: 90%;
+    align-self: auto;
+}
+.header {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center; /* Center-align the header */
+}
+.paragraph {
+    font-size: 18px;
+    margin: 8px;
+}
