@@ -6,29 +6,39 @@
     <title>Ping Ngrok Server</title>
 </head>
 <body>
+    <div>
     <h1>Ping Ngrok Server</h1>
-    <form onsubmit=return javascript:getData()> <!-- Replace with your Ngrok URL -->
+    <form action="javascript:getData()"> <!-- Replace with your Ngrok URL -->
         <button type="submit" value="submit">Ping Server</button>
     </form>
     <script>
     async function getData() {
+        const outputDiv = document.getElementById("output");
+        alert("function called");
         const url = "https://f2d0-141-215-206-98.ngrok-free.app/hello";
         try {
-          const response = await fetch(url);
+          const response = await fetch(url,{
+                mode:  'cors' ,
+                method: 'POST',
+                /*headers:{
+                    'Content-Type': 'text/html'
+                }*/
+            },);
           if (!response.ok) {
+            /// alert(`Response status: ${response.status}`);
             throw new Error(`Response status: ${response.status}`);
+          } else {
+            
+            outputDiv.textContent = response.type;
+            /// alert(response);
+            return outputDiv;
           }
-          const outputDiv = document.getElementById("output");
-          alert(outputDiv);
-          return outputDiv;
-          const json = await response.json();
-          console.log(json);
         } catch (error) {
           console.error(error.message);
         }
       }
       </script>
-      <div>
+      
         <p id="output"></p>
       </div>
 </body>
