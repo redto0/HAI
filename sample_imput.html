@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Ngrok Server</title>
+</head>
+<body>
+    <h1>Ping Ngrok Server</h1>
+    <form onsubmit=return javascript:getData()> <!-- Replace with your Ngrok URL -->
+        <button type="submit" value="submit">Ping Server</button>
+    </form>
+    <script>
+    async function getData() {
+        const url = "https://f2d0-141-215-206-98.ngrok-free.app/hello";
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+          }
+          const outputDiv = document.getElementById("output");
+          alert(outputDiv);
+          return outputDiv;
+          const json = await response.json();
+          console.log(json);
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+      </script>
+      <div>
+        <p id="output"></p>
+      </div>
+</body>
+</html>
